@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UoN Governance</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    .top-bar {
+      background-color: #004080;
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      padding: 8px 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    .main-header {
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0;
+      position: relative;
+    }
+
+    .main-header .logo {
+      max-height: 60px;
+    }
+
+    .main-header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+      color: #004080;
+      font-weight: bold;
+      padding: 6px 10px;
+      transition: background 0.3s;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      background-color: #004080;
+      color: #fff;
+      border-radius: 4px;
+    }
+
+    .mobile-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+        color: #004080;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        border: 1px solid #ddd;
+        padding: 10px;
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+    }
+
+    header.page-header {
+      background-color: #0057a0;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .leader {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .leader img {
+      max-width: 160px;
+      height: auto;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #004080;
+    }
+
+    .leader h3 {
+      margin: 10px 0 5px;
+      color: #004080;
+      font-size: 20px;
+    }
+
+    .leader p {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    button {
+      display: block;
+      margin: 40px auto 20px;
+      padding: 12px 24px;
+      background-color: #004080;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #003366;
+    }
+
+    #councilMembers ul {
+      list-style-type: disc;
+      margin-top: 10px;
+      padding-left: 40px;
+      color: #333;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <p>University of Nairobi | A world-class university committed to scholarly excellence</p>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="container">
+      <img src="UoN_Logo.png" alt="UoN Logo" class="logo">
+      <div class="mobile-toggle" id="mobileToggle">☰</div>
+      <nav class="main-nav">
+        <ul id="navList">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="AboutUs.html" class="nav-link">About Us</a></li>
+          <li><a href="Academics.html" class="nav-link">Academics</a></li>
+          <li><a href="admission.html" class="nav-link">Admissions</a></li>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- Governance Header -->
+  <header class="page-header">
+    <h1>University of Nairobi</h1>
+    <h2>Leadership and Governance</h2>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="leader">
+      <img src="chancellor.jpeg" alt="Prof. Patrick Verkooijen" />
+      <h3>Prof. Patrick Verkooijen</h3>
+      <p>Chancellor</p>
+    </section>
+
+    <section class="leader">
+      <img src="Chairman.jpeg" alt="Prof. Amukowa Anangwe" />
+      <h3>Prof. Amukowa Anangwe</h3>
+      <p>Chairman of Council</p>
+    </section>
+
+    <section class="leader">
+      <img src="Vice-chancellor.jpg" alt="Prof. Margaret Hutchinson" />
+      <h3>Prof. Margaret Hutchinson</h3>
+      <p>Acting Vice Chancellor</p>
+    </section>
+
+    <button id="toggleCouncil">Toggle University Council Members</button>
+    <div id="councilMembers" class="hidden">
+      <ul>
+        <li>Dr. Sally N. Toroitich – Member</li>
+        <li>Prof. Margaret Jesang' Hutchinson – Ag. Vice-Chancellor & Council Secretary</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 University of Nairobi</p>
+  </footer>
+
+  <script>
+    // Toggle council members
+    document.getElementById('toggleCouncil').addEventListener('click', function () {
+      const councilDiv = document.getElementById('councilMembers');
+      councilDiv.classList.toggle('hidden');
+    });
+
+    // Mobile nav toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navList = document.getElementById('navList');
+    mobileToggle.addEventListener('click', () => {
+      navList.classList.toggle('active');
+    });
+
+    // Highlight active link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

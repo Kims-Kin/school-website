@@ -1,100 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University of Nairobi</title>
+  <link rel="stylesheet" href="Home.css">
+  <style>
+    /* Minimal styles for mobile nav toggle (bonus feature) */
+    .mobile-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;`
+        color: #004080;
+        position: absolute;
+        top: 25px;
+        right: 20px;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+    }
+  </style>
 </head>
 <body>
-   <p>Introduction to my Website</p>
-   <p>This site is for a company dealing  marketing with good</p>
-   <p>our products are perishable</p>
- <div class="paragraph" style="color: red;">
-        Introduction to my Website
-        This site is for a company dealing  marketing with good
-        Our products are perishable
+  <!-- Header Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <p>University of Nairobi | A world-class university committed to scholarly excellence</p>
     </div>
-    <ol>
-        <li>English</li>
-        <li>Kiswahili</li>
-        <li>Maths</li>
-        <li>Physics</li>
-        <li>Biology</li>
-        <li>Geography</li>
-    </ol>
-    <Ul>
-        <li>English</li>
-        <li>Kiswahili</li>
-        <li>Math</li>
-        <li>Physics</li>
-        <li>Biology</li>
-        <li>Geography</li>
-    </Ul>
-<Table border="1">
-    <tr>
-        <td>Subject</td>
-   
-         <td>Score</td>
-    
-         <td>Grade</td>
-    </tr>
-    <tr>
-        <td>
-           <ol>
-            <li>Physics</li>
-            <li>Bio</li>
-            <li>Chem</li>
-            <li>Kis</li>
-           </ol>
-        </td>   
-        <td>
-            <ol>
-                <li>80</li>
-                <li>64</li>
-                <li>80</li>
-                <li>75</li>
-            </ol>
-        </td>
-        <td>
-            <ol>
-                <li>A</li>
-                <li>B+</li>
-                <li>A</li>
-                <li>A-</li>
-            </ol>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <ul>
-                <li>Computer</li>
-                <li>C.R.E</li>
-                <li>History</li>
-                <li>Bisuness</li>
-            </ul>
-        </td>
-        <td>
-            <ul>
-                <li>90</li>
-                <li>99</li>
-                <li>80</li>
-                <li>60</li>
-            </ul>   
-            
-        </td>
-        <td>
-            <ul>
-                <li>A</li>
-                <li>A</li>
-                <li>A</li>
-                <li>B</li>
-            </ul>
-         </td>
-    </tr>
-</Table>
+  </div>
 
-<div class="Container"></div>
-<div class="Nav-link"></div>
-   
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="container">
+      <img src="UoN_Logo.png" alt="UoN Logo" class="logo">
+      <div class="mobile-toggle" id="mobileToggle">☰</div>
+      <nav class="main-nav">
+        <ul id="navList">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="AboutUs.html" class="nav-link">About Us</a></li>
+          <li><a href="Academics.html" class="nav-link">Academics</a></li>
+          <li><a href="admission.html" class="nav-link">Admissions</a></li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Slider -->
+  <section class="hero-slider">
+    <div class="slider" id="slider">
+      <div class="slide active">
+        <img src="Climate.jpg" alt="Slide 1">
+        <div class="slide-caption">Welcome to the University of Nairobi</div>
+      </div>
+      <div class="slide">
+        <img src="Elections.jpeg" alt="Slide 2">
+        <div class="slide-caption">Innovative Research & Excellence</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News and Events Section -->
+  <section class="news-events">
+    <div class="container">
+      <h2>Latest News & Events</h2>
+      <div class="news-grid">
+        <div class="news-item">
+          <img src="people.jpeg" alt="News 1">
+          <h3>Tree Planting</h3>
+          <p>Brief description of the news or event.</p>
+        </div>
+        <div class="news-item">
+          <img src="department.jpg" alt="News 2">
+          <h3>School Head`s</h3>
+          <p>Another brief summary of an academic/research topic.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 University of Nairobi. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Inline JavaScript for Functionality -->
+  <script>
+    // SLIDER FUNCTIONALITY
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slider = document.getElementById('slider');
+    let slideInterval;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function startSlider() {
+      slideInterval = setInterval(nextSlide, 4000);
+    }
+
+    function pauseSlider() {
+      clearInterval(slideInterval);
+    }
+
+    slider.addEventListener('mouseenter', pauseSlider);
+    slider.addEventListener('mouseleave', startSlider);
+
+    startSlider();
+
+    // NAVIGATION ACTIVE LINK
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+
+    // MOBILE NAV TOGGLE
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navList = document.getElementById('navList');
+
+    mobileToggle.addEventListener('click', () => {
+      navList.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
